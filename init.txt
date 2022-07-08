@@ -1,0 +1,2 @@
+django-admin startproject --template=C:\DES\_BOILERPLATE config .
+pipenv install
