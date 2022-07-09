@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     # Terceiros
     'debug_toolbar',
     'django_cpf_cnpj',
+    'simple_history',
 
     # App's
     'accounts',
