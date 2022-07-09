@@ -3,12 +3,13 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.admin import UserAdmin
 from .forms import CustomUserCreationForm, CustomUserChangeForm
 from django.utils.translation import gettext_lazy as _
+from simple_history.admin import SimpleHistoryAdmin
 
 
 CustomUser = get_user_model()
 
 
-class CustomUserAdmin(UserAdmin):
+class CustomUserAdmin(UserAdmin, SimpleHistoryAdmin):
     add_form = CustomUserCreationForm
     form = CustomUserChangeForm
     model = CustomUser
