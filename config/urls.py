@@ -19,8 +19,16 @@ from django.urls import path, include
 
 
 urlpatterns = [
-    path('', include('apps.core.urls')),
+
+    # Django admin
     path('admin/', admin.site.urls),
+
+    # Gerenciamento de usuário
+    path('accounts/', include('django.contrib.auth.urls')),
+
+    # Apps locais
+    path('', include('apps.core.urls')),
+
 ]
 
 # Rota para ativar o debug toolbar quando do django estiver em modo debug
