@@ -28,6 +28,7 @@ urlpatterns = [
 
     # Apps locais
     path('', include('apps.core.urls')),
+    path('accounts/', include('accounts.urls')),
 
 ]
 
