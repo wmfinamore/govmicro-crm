@@ -1,0 +1,14 @@
+{% extends '_base.html' %}
+
+{% block title %}
+    Nova conta
+{% endblock %}
+
+{% block main %}
+    <h1>Crie sua nova conta!</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-success">Salvar Conta</button>
+    </form>
+{% endblock %}
