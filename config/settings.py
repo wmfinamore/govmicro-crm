@@ -29,11 +29,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
 
     # Terceiros
     'debug_toolbar',
     'django_cpf_cnpj',
     'simple_history',
+    'allauth.account',
 
     # App's
     'accounts',
@@ -148,8 +150,8 @@ INTERNAL_IPS = [
 AUTH_USER_MODEL = 'accounts.CustomUser'
 
 # CONFIGURAÇÃO PARA LOGIN/LOGOUT
-LOGIN_REDIRECT_URL = 'home'
-LOGOUT_REDIRECT_URL = 'home'
+# LOGIN_REDIRECT_URL = 'home'
+# LOGOUT_REDIRECT_URL = 'home'
 
 # CONFIGURAÇÕES DE E-MAIL
 EMAIL_BACKEND = 'django_smtp_ssl.SSLEmailBackend'
@@ -164,3 +166,13 @@ ADMINS = [(env.str('ADMIN_NOME'), env.str('ADMIN_EMAIL')), ]
 
 # SIMPLE HISTORY CONFIGURATIONS
 SIMPLE_HISTORY_HISTORY_ID_USE_UUID = True
+
+# django-allauth config
+LOGIN_REDIRECT_URL = 'home'
+ACCOUNT_LOGOUT_REDIRECT_URL = 'home'
+SITE_ID = 1
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
