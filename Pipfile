@@ -9,6 +9,7 @@ django-debug-toolbar = "*"
 psycopg2 = "*"
 environs = "*"
 django-simple-history = "*"
+django-allauth = "*"
 
 [dev-packages]
 
