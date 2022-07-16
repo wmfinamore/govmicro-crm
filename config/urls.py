@@ -24,11 +24,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     # Gerenciamento de usuário
-    path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/', include('allauth.urls')),
 
     # Apps locais
     path('', include('apps.core.urls')),
-    path('accounts/', include('accounts.urls')),
 
 ]
 
