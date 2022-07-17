@@ -10,6 +10,7 @@ psycopg2 = "*"
 environs = "*"
 django-simple-history = "*"
 django-allauth = "*"
+django-crispy-forms = "*"
 
 [dev-packages]
 

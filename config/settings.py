@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'django_cpf_cnpj',
     'simple_history',
     'allauth.account',
+    'crispy_forms',
 
     # App's
     'accounts',
