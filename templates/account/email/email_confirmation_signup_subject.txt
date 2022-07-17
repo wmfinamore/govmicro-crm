@@ -1,1 +1,4 @@
-[MiniCRM] - Novo Usuário
+{% load i18n %}
+{% autoescape off %}
+{% blocktrans %}Confirme sua nova conta{% endblocktrans %}
+{% endautoescape %}
