@@ -155,6 +155,7 @@ AUTH_USER_MODEL = 'accounts.CustomUser'
 # LOGOUT_REDIRECT_URL = 'home'
 
 # CONFIGURAÇÕES DE E-MAIL
+DEFAULT_FROM_EMAIL = env.str('DEFAULT_FROM_EMAIL')
 EMAIL_BACKEND = 'django_smtp_ssl.SSLEmailBackend'
 EMAIL_HOST = env.str('EMAIL_HOST')
 EMAIL_PORT = env.int('EMAIL_PORT')
