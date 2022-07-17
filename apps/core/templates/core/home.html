@@ -1,5 +1,8 @@
 {% extends '_base.html' %}
 {% load static %}
+{% load crispy_forms_tags %}
+{% load i18n %}
+{% load account %}
 
 {% block title %}
     MiniCRM
@@ -25,12 +28,15 @@
                     {% if user.is_authenticated %}
                         Olá {{ user.first_name }} {{ user.last_name }}
                         <div>
-                            <a class="btn btn-danger" href="{% url 'account_logout' %}"> Logout</a>
+                            <p><a class="btn btn-danger" href="{% url 'account_logout' %}"> Logout</a></p>
+                            <p><a class="btn btn-info" href="{% url 'account_change_password' %}"> Trocar Senha</a></p>
                         </div>
                     {% else %}
                         <p>Vamos começar?</p>
                         <p><a class="btn btn-success" href="{% url 'account_login' %}">Login</a></p>
                         <p><a class="btn btn-warning" href="{% url 'account_signup' %}">Nova conta</a></p>
+                        <p><a class="btn btn-info" href="{% url 'account_reset_password' %}">
+                            {% trans "Esqueceu a senha?" %}</a></p>
                     {% endif %}
                 </p>
             </div>
