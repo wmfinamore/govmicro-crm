@@ -156,12 +156,13 @@ AUTH_USER_MODEL = 'accounts.CustomUser'
 
 # CONFIGURAÇÕES DE E-MAIL
 DEFAULT_FROM_EMAIL = env.str('DEFAULT_FROM_EMAIL')
-EMAIL_BACKEND = 'django_smtp_ssl.SSLEmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = env.str('EMAIL_HOST')
 EMAIL_PORT = env.int('EMAIL_PORT')
 EMAIL_HOST_USER = env.str('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = env.str('EMAIL_HOST_PASSWORD')
 EMAIL_USE_TLS = env.bool('EMAIL_USE_TLS')
+EMAIL_TIMEOUT = env.int('EMAIL_TIMEOUT')
 
 # ADMINS EMAIL
 ADMINS = [(env.str('ADMIN_NOME'), env.str('ADMIN_EMAIL')), ]
@@ -177,4 +178,5 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend',
 )
+# EMAIL FOR LOCAL TEST
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
