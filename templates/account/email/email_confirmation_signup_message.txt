@@ -5,7 +5,7 @@
     {% blocktrans with site_name=current_site.name site_domain=current_site.domain %}
     Olá do {{ site_name }}!
 
-    Você está recebendo este e-mail porque o usuário {{ user_display }} indicou essa conta de e-mail em sua nova conta.
+    Você está recebendo este e-mail porque o usuário {{ user_display }} indicou esse endereço de e-mail em sua nova conta.
 
     Para confirmar que está correto, vá para {{ activate_url }}
 
