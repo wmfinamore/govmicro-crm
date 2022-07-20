@@ -11,6 +11,7 @@ environs = "*"
 django-simple-history = "*"
 django-allauth = "*"
 django-crispy-forms = "*"
+django-cpf-cnpj = "*"
 
 [dev-packages]
 
