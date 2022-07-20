@@ -39,11 +39,11 @@ class SignupTests(TestCase):
     Teste de rotas e templates para a página de criação de novos usuários
     """
     def setUp(self):
-        url = reverse('signup')
+        url = reverse('account_signup')
         self.response = self.client.get(url)
 
     def test_signup_template(self):
         self.assertEqual(self.response.status_code, 200)
-        self.assertTemplateUsed(self.response, 'registration/signup.html')
+        self.assertTemplateUsed(self.response, 'account/signup.html')
         self.assertContains(self.response, 'Crie sua nova conta!')
         self.assertNotContains(self.response, 'Hi there! I should not be on the page.')
