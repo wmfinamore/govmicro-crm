@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'simple_history',
     'allauth.account',
     'crispy_forms',
+    'defender',
 
     # App's
     'accounts',
@@ -54,6 +55,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
     'simple_history.middleware.HistoryRequestMiddleware',
+    'defender.middleware.FailedLoginMiddleware',
 ]
 
 ROOT_URLCONF = 'config.urls'

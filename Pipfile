@@ -12,6 +12,7 @@ django-simple-history = "*"
 django-allauth = "*"
 django-crispy-forms = "*"
 django-cpf-cnpj = "*"
+django-defender = "*"
 
 [dev-packages]
 
