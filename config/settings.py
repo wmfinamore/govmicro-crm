@@ -182,3 +182,13 @@ AUTHENTICATION_BACKENDS = (
 )
 # EMAIL FOR LOCAL TEST
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# DEFENDER CONFIGURATIONS
+CACHES = {
+    'default': {"BACKEND": "django.core.cache.backends.redis.RedisCache",
+                "LOCATION": env.str('REDIS_LOCATION'),
+                }
+}
+
+DEFENDER_REDIS_URL = env.str('DEFENDER_REDIS_URL')
+DEFENDER_DISABLE_IP_LOCKOUT = env.bool('DEFENDER_DISABLE_IP_LOCKOUT')
