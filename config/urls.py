@@ -17,10 +17,10 @@ from django.conf import settings
 from django.contrib import admin
 from django.urls import path, include
 
-
 urlpatterns = [
 
     # Django admin
+    path('admin/defender/', include('defender.urls')),  # defender admin
     path('admin/', admin.site.urls),
 
     # Gerenciamento de usuário
