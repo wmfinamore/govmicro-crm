@@ -35,9 +35,14 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'django_cpf_cnpj',
     'simple_history',
+    'allauth',
     'allauth.account',
     'crispy_forms',
     'defender',
+
+    # Social Authetication
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
 
     # App's
     'accounts',
@@ -180,6 +185,19 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend',
 )
+
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'online',
+        }
+    }
+}
+
 # EMAIL FOR LOCAL TEST
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
