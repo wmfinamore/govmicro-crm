@@ -180,7 +180,7 @@ SIMPLE_HISTORY_HISTORY_ID_USE_UUID = True
 # django-allauth config
 LOGIN_REDIRECT_URL = 'home'
 ACCOUNT_LOGOUT_REDIRECT_URL = 'home'
-SITE_ID = 1
+SITE_ID = 2
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend',
