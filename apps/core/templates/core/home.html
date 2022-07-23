@@ -35,7 +35,7 @@
                     {% else %}
                         <p>Vamos começar?</p>
                         <p><a class="btn btn-success" href="{% url 'account_login' %}">Login</a></p>
-                        <a href="{% provider_login_url 'google' %}">Login com Google</a>
+                        <p><a class="btn btn-success" href="{% provider_login_url 'google' %}">Login com Google</a></p>
                         <p><a class="btn btn-warning" href="{% url 'account_signup' %}">Nova conta</a></p>
                         <p><a class="btn btn-info" href="{% url 'account_reset_password' %}">
                             {% trans "Esqueceu a senha?" %}</a></p>
