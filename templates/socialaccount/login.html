@@ -3,19 +3,23 @@
 
 {% block head_title %}{% trans "Sign In" %}{% endblock %}
 
+{% block extra_head %}
+
+{% endblock %}
+
 {% block content %}
-{% if process == "connect" %}
-<h1>{% blocktrans with provider.name as provider %}Connect {{ provider }}{% endblocktrans %}</h1>
+  {% if process == "connect" %}
+    <h1>{% blocktrans with provider.name as provider %}Connect {{ provider }}{% endblocktrans %}</h1>
 
-<p>{% blocktrans with provider.name as provider %}Você está prestes a se conectar uma conta de terceiros do {{ provider }}.{% endblocktrans %}</p>
-{% else %}
-<h1>{% blocktrans with provider.name as provider %}Cadastrar via {{ provider }}{% endblocktrans %}</h1>
+    <p>{% blocktrans with provider.name as provider %}Você está prestes a se conectar uma conta de terceiros do {{ provider }}.{% endblocktrans %}</p>
+  {% else %}
+    <h1>{% blocktrans with provider.name as provider %}Acessar via {{ provider }}{% endblocktrans %}</h1>
 
-<p>{% blocktrans with provider.name as provider %}Você está prestes a fazer login com um conta de terceiros de {{ provider }}.{% endblocktrans %}</p>
-{% endif %}
+    <p>{% blocktrans with provider.name as provider %}Você está prestes a fazer login com um conta do {{ provider }}.{% endblocktrans %}</p>
+  {% endif %}
 
-<form method="post">
-  {% csrf_token %}
-  <button type="submit">{% trans "Continue" %}</button>
-</form>
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit">{% trans "Continue" %}</button>
+  </form>
 {% endblock %}
