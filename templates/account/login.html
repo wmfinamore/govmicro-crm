@@ -2,26 +2,35 @@
 {% load crispy_forms_tags %}
 
 {% block title %}
-    MiniCRM
+    Gov-MicroCRM
 {% endblock %}
 
 {% block main %}
-    <div class="container">
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <h1>Autenticação do Sistema</h1>
-        <div>
-            <h2>Log In</h2>
-            <form method="post">
-                {% csrf_token %}
-                {{ form|crispy }}
-                <button type="submit" class="btn btn-primary">Login</button>
-            </form>
-        </div>
-        <br>
-    </div>
+
+    <!-- Masthead-->
+        <header class="masthead bg-primary text-white text-center">
+            <div class="container d-flex align-items-center flex-column">
+                <!-- Masthead Avatar Image-->
+                <!-- Masthead Heading-->
+                <h1 class="masthead-heading text-uppercase mb-0">Autenticação do Sistema</h1>
+                <!-- Icon Divider-->
+                <div class="divider-custom divider-light">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+                <!-- Masthead Subheading-->
+                <p class="masthead-subheading font-weight-light mb-0">
+                    <div>
+                        <h2>Log In</h2>
+                        <form method="post">
+                            {% csrf_token %}
+                            {{ form|crispy }}
+                            <button type="submit" class="btn btn-primary">Login</button>
+                        </form>
+                    </div>
+                </p>
+            </div>
+        </header>
 
 {% endblock %}
