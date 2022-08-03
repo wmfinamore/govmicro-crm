@@ -1,13 +1,17 @@
-{% extends "socialaccount/base.html" %}
+{% extends '_base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
 {% load i18n %}
+{% load account %}
+{% load socialaccount %}
 
-{% block head_title %}{% trans "Sign In" %}{% endblock %}
-
-{% block extra_head %}
-
+{% block title %}
+    GovMicro-CRM
 {% endblock %}
 
-{% block content %}
+{% block subheadtext %}Sign In{% endblock %}
+
+{% block main %}
   {% if process == "connect" %}
     <h1>{% blocktrans with provider.name as provider %}Connect {{ provider }}{% endblocktrans %}</h1>
 
