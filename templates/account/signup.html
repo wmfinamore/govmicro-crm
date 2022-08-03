@@ -5,17 +5,14 @@
     Nova conta
 {% endblock %}
 
+{% block subheadtext %}Crie sua nova conta!{% endblock %}
+
 {% block main %}
     <div class="container">
-        <br>
-        <br>
-        <br>
-        <br>
-        <h1>Crie sua nova conta!</h1>
         <form method="post">
             {% csrf_token %}
             {{ form|crispy }}
-            <button type="submit" class="btn btn-success">Salvar Conta</button>
+            <br><button type="submit" class="btn btn-success">Salvar Conta</button>
         </form>
         <br>
     </div>
