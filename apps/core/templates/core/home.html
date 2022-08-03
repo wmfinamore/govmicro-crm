@@ -8,40 +8,22 @@
 {% block title %}
     GovMicro-CRM
 {% endblock %}
+{% block subheadtext %}Bem Vindo{% endblock %}
 
 {% block main %}
 
-    <!-- Masthead-->
-        <header class="masthead bg-primary text-white text-center">
-            <div class="container d-flex align-items-center flex-column">
-                <!-- Masthead Avatar Image-->
-                <!-- <img class="masthead-avatar mb-5" src="{% static 'freelancer/assets/img/avataaars.svg' %}" alt="..." />-->
-                <!-- Masthead Heading-->
-                <h1 class="masthead-heading text-uppercase mb-0">Bem Vindo</h1>
-                <!-- Icon Divider-->
-                <div class="divider-custom divider-light">
-                    <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                    <div class="divider-custom-line"></div>
-                </div>
-                <!-- Masthead Subheading-->
-                <p class="masthead-subheading font-weight-light mb-0">
-                    {% if user.is_authenticated %}
-                        Olá {{ user.first_name }} {{ user.last_name }}
-                        <div>
-                            <p><a class="btn btn-danger" href="{% url 'account_logout' %}"> Logout</a></p>
-                            <p><a class="btn btn-info" href="{% url 'account_change_password' %}"> Trocar Senha</a></p>
-                        </div>
-                    {% else %}
-                        <p>Vamos começar?</p>
-                        <p><a class="btn btn-success" href="{% url 'account_login' %}">Login</a></p>
-                        <p><a class="btn btn-success" href="{% provider_login_url 'google' %}">Login com Google</a></p>
-                        <p><a class="btn btn-warning" href="{% url 'account_signup' %}">Nova conta</a></p>
-                        <p><a class="btn btn-info" href="{% url 'account_reset_password' %}">
-                            {% trans "Esqueceu a senha?" %}</a></p>
-                    {% endif %}
-                </p>
+   {% if user.is_authenticated %}
+        Olá {{ user.first_name }} {{ user.last_name }}
+            <div>
+                <p><a class="btn btn-danger" href="{% url 'account_logout' %}"> Logout</a></p>
+                <p><a class="btn btn-info" href="{% url 'account_change_password' %}"> Trocar Senha</a></p>
             </div>
-        </header>
+   {% else %}
+        <p>Vamos começar?</p>
+        <p><a class="btn btn-success" href="{% url 'account_login' %}">Login</a></p>
+        <p><a class="btn btn-success" href="{% provider_login_url 'google' %}">Login com Google</a></p>
+        <p><a class="btn btn-warning" href="{% url 'account_signup' %}">Nova conta</a></p>
+        <p><a class="btn btn-info" href="{% url 'account_reset_password' %}">{% trans "Esqueceu a senha?" %}</a></p>
+   {% endif %}
 
 {% endblock %}
