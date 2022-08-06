@@ -23,6 +23,9 @@ urlpatterns = [
     path('admin/defender/', include('defender.urls')),  # defender admin
     path('admin/', admin.site.urls),
 
+    # terceiros
+    path('cookie/', include('cookie_consent.urls')),
+
     # Gerenciamento de usuário
     path('accounts/', include('allauth.urls')),
 
