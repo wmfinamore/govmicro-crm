@@ -13,7 +13,6 @@ django-allauth = "*"
 django-crispy-forms = "*"
 django-cpf-cnpj = "*"
 django-defender = "*"
-django-cookie-consent = "*"
 
 [dev-packages]
 

@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "ff23fdeb421de2e32a2f979c7f558a671100ef740a3b354253814de6ec8b2aea"
+            "sha256": "1a18e4c40326e017a2ac26d4b1286654444b044ae6398997a294b49c41bf6438"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -174,21 +174,6 @@
             ],
             "index": "pypi",
             "version": "==0.51.0"
-        },
-        "django-appconf": {
-            "hashes": [
-                "sha256:ae9f864ee1958c815a965ed63b3fba4874eec13de10236ba063a788f9a17389d",
-                "sha256:be3db0be6c81fa84742000b89a81c016d70ae66a7ccb620cdef592b1f1a6aaa4"
-            ],
-            "markers": "python_version >= '3.6'",
-            "version": "==1.0.5"
-        },
-        "django-cookie-consent": {
-            "hashes": [
-                "sha256:71701c23e82f8ad64cc899ae3595d9595d0e6faaac47c27a614e1178cd95e3e0"
-            ],
-            "index": "pypi",
-            "version": "==0.3.1"
         },
         "django-cpf-cnpj": {
             "hashes": [
