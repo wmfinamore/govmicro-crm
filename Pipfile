@@ -13,6 +13,7 @@ django-allauth = "*"
 django-crispy-forms = "*"
 django-cpf-cnpj = "*"
 django-defender = "*"
+django-mptt = "*"
 
 [dev-packages]
 
