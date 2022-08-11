@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'crispy_forms',
     'defender',
+    'mptt',
 
     # Social Authetication
     'allauth.socialaccount',
