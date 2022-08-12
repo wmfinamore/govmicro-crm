@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'accounts',
     'apps.core',
     'apps.assuntos',
+    'apps.unidades',
 
 ]
 
