@@ -5,6 +5,14 @@ from mptt.admin import DraggableMPTTAdmin
 
 class UnidadeAdmin(DraggableMPTTAdmin):
     list_display = ['tree_actions', 'indented_title', 'level']
+    filter_horizontal = ('funcionarios', )
+    fieldsets = (
+        (None,
+             {'fields':
+                 ('nome', 'sigla', 'ativo', 'parent', 'funcionarios'),
+             },
+         ),
+    )
 
 
 admin.site.register(Unidade, UnidadeAdmin)
