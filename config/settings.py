@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'apps.core',
     'apps.assuntos',
     'apps.unidades',
+    'apps.enderecos',
 
 ]
 
