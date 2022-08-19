@@ -214,3 +214,7 @@ CACHES = {
 
 DEFENDER_REDIS_URL = env.str('DEFENDER_REDIS_URL')
 DEFENDER_DISABLE_IP_LOCKOUT = env.bool('DEFENDER_DISABLE_IP_LOCKOUT')
+
+# Valor default para Endereços
+CIDADE = env.str('CIDADE')
+ESTADO = env.str('ESTADO')
