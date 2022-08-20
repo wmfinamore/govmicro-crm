@@ -4,7 +4,7 @@ from simple_history.admin import SimpleHistoryAdmin
 
 
 class EnderecoAdmin(SimpleHistoryAdmin):
-    pass
+    search_fields = ['endereco', 'bairro', 'cidade', 'estado', 'cep', ]
 
 
 admin.site.register(Endereco, EnderecoAdmin)
