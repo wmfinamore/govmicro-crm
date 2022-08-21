@@ -14,7 +14,7 @@ class Ocorrencia(Auditoria):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     numero = models.PositiveBigIntegerField(null=True, blank=True)
     solicitante = models.ForeignKey(User, on_delete=models.PROTECT, blank=True, limit_choices_to={'is_staff': False}, )
-    assunto = models.ForeignKey(Assunto, on_delete=models.PROTECT, limit_choices_to={'is_leaf_node': True}, )
+    assunto = models.ForeignKey(Assunto, on_delete=models.PROTECT, )
     endereco = models.ForeignKey(Endereco, on_delete=models.PROTECT, verbose_name='Endereço')
     anonimo = models.BooleanField(default=False, verbose_name='Anônimo?')
     descricao_ocorrencia = models.TextField(null=True, blank=True, verbose_name='Descrição da Ocorrência')
