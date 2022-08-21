@@ -51,7 +51,7 @@ INSTALLED_APPS = [
     'apps.assuntos',
     'apps.unidades',
     'apps.enderecos',
-    'app.ocorrencias',
+    'apps.ocorrencias',
 
 ]
 
