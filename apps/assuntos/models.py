@@ -17,6 +17,9 @@ class Assunto(MPTTModel):
 def update_folha(sender, instance, **kwargs):
     Assunto.objects.filter(id=instance.id). \
         update(folha=instance.is_leaf_node())
-    # ancestors = instance.get_ancestors()
-    # for ancestor in ancestors:
-    #     ancestor.objects.update(folha=ancestor.is_leaf_node())
+    if instance.is_leaf_node():
+        ancestors = instance.get_ancestors()
+        for ancestor in ancestors:
+            folha = ancestor.is_leaf_node()
+            Assunto.objects.filter(id=ancestor.id).update(folha=folha)
+
