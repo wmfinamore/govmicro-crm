@@ -2,12 +2,14 @@ from django.db import models
 from mptt.models import MPTTModel, TreeForeignKey
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+from apps.unidades.models import Unidade
 
 
 class Assunto(MPTTModel):
     nome = models.CharField(max_length=100, unique=True)
     parent = TreeForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, related_name='children')
     folha = models.BooleanField(default=True, editable=False)
+    unidade = models.ForeignKey(Unidade, on_delete=models.PROTECT, null=True, blank=True)
 
     def __str__(self):
         return self.nome
