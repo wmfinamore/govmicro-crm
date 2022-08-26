@@ -23,6 +23,7 @@ class Ocorrencia(Auditoria):
     unidade_atual = models.ForeignKey(Unidade, blank=True, null=True, on_delete=models.PROTECT, editable=False)
 
     def save(self, *args, **kwargs):
+        # Regra para geração de numeração
         if self.numero is not None:
             pass
         else:
@@ -31,6 +32,11 @@ class Ocorrencia(Auditoria):
                 self.numero = int(numero.numero) + 1
             else:
                 self.numero = 1
+
+        # Regra para atribuição de número a ocorrência
+        if self.unidade_atual is None:
+            assunto = Assunto.objects.get(id=self.assunto.id)
+            self.unidade_atual = assunto.unidade
         super().save(*args, **kwargs)
 
     def __str__(self):
