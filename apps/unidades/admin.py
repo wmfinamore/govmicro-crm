@@ -13,6 +13,7 @@ class UnidadeAdmin(DraggableMPTTAdmin):
              },
          ),
     )
+    search_fields = ['nome', 'sigla']
 
 
 admin.site.register(Unidade, UnidadeAdmin)
