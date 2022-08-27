@@ -6,6 +6,8 @@ from apps.enderecos.models import Endereco
 from apps.unidades.models import Unidade
 import uuid
 from datetime import date
+from django.core.exceptions import ValidationError
+from django.utils.translation import gettext_lazy as _
 
 
 User = get_user_model()
@@ -14,7 +16,8 @@ User = get_user_model()
 class Ocorrencia(Auditoria):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     numero = models.PositiveBigIntegerField(null=True, blank=True)
-    solicitante = models.ForeignKey(User, on_delete=models.PROTECT, blank=True, limit_choices_to={'is_staff': False}, )
+    solicitante = models.ForeignKey(User, on_delete=models.PROTECT, null=True, blank=True,
+                                    limit_choices_to={'is_staff': False}, default=None,)
     ano = models.PositiveIntegerField(default=date.today().strftime("%Y"), editable=False)
     assunto = models.ForeignKey(Assunto, on_delete=models.PROTECT, limit_choices_to={'folha': True}, )
     endereco = models.ForeignKey(Endereco, on_delete=models.PROTECT, verbose_name='Endereço')
@@ -32,12 +35,18 @@ class Ocorrencia(Auditoria):
                 self.numero = int(numero.numero) + 1
             else:
                 self.numero = 1
-
         # Regra para atribuição de número a ocorrência
         if self.unidade_atual is None:
             assunto = Assunto.objects.get(id=self.assunto.id)
             self.unidade_atual = assunto.unidade
         super().save(*args, **kwargs)
+
+    def clean(self):
+        if self.anonimo and self.solicitante is not None:
+            raise ValidationError(_("Registro de ocorrência marcada como anônima não "
+                                    "pode ter indentificação do solicitante"))
+        if not self.anonimo and self.solicitante is None:
+            raise ValidationError(_("Você deve informar o solicitante da ocorrência."))
 
     def __str__(self):
         return str(self.solicitante) + ' - ' + str(self.assunto) + ' - ' + str(self.endereco)
